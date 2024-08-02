@@ -15,6 +15,7 @@ class Extractor():
     def perform_product_post(self):
         self.extract_product_categories()
         self.extract_status()
+        self.has_hunter_badge()
     
     def extract_product_title(self):
         try:
