@@ -97,17 +97,8 @@ attr = {
     'class_up_votes': 'text-14 font-semibold text-white uppercase',
     'class_comments': '#about > div.mb-10.flex.flex-row.justify-between > div:nth-child(3) > div.text-18.font-semibold.text-dark-gray',
     'class_day_rank': '#about > div.mb-10.flex.flex-row.justify-between > div:nth-child(5) > div.text-18.font-semibold.text-dark-gray',
-    
-    
+   
 }
-# attr = {
-#     "product_title": "h1",  # Example, adjust according to actual HTML structure
-#     "class_title": "product-title-class",  # Example, adjust according to actual HTML structure
-#     "team": "div",  # Example, adjust according to actual HTML structure
-#     "class_team": "team-member-class",  # Example, adjust according to actual HTML structure
-#     "product_category": "a",  # Example, adjust according to actual HTML structure
-#     "class_category": "category-class",  # Example, adjust according to actual HTML structure
-# }
 
 def get_random_user_agent():
     return choice(user_agents)

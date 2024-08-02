@@ -47,17 +47,15 @@ class Extractor():
     def extract_status(self):
         try:
             elements = self.extractor.find_all(class_ = 'flex flex-col items-center gap-2')
-            # if elements:
-            #     result = [element.find('div', attrs={'class': 'text-18 font-semibold text-dark-gray'}).text for element in elements]
-            #     self.result['comments_count'] = result[1]
-            #     self.result['up_votes'] = result[0]
-            #     self.result['day_rank'] = result[2]
-            # else:
-            #     self.result['comments_count'] = None
-            #     self.result['up_votes'] = None
-            #     self.result['day_rank'] = None
             if elements:
-                print([element.find(class_ = 'text-18 font-semibold text-dark-gray').text for element in elements])
+                result = [element.find('div', attrs={'class': 'text-18 font-semibold text-dark-gray'}).text for element in elements]
+                self.result['comments_count'] = result[1]
+                self.result['up_votes'] = result[0]
+                self.result['day_rank'] = result[2]
+            else:
+                self.result['comments_count'] = None
+                self.result['up_votes'] = None
+                self.result['day_rank'] = None
         except Exception as e:
             print(f"Error extracting status: {e}")
             self.result['comments_count'] = None
