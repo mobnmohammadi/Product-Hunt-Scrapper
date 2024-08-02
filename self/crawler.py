@@ -31,16 +31,16 @@ class Crawling():
         self.driver.get(url=self.urls['makers'])
         if '404' in str(self.driver.get_log('browser')):
             return None
+        
         try:
             show_all_element = WebDriverWait(self.driver, 15).until(
                 EC.presence_of_all_elements_located((By.XPATH, show_all_makers_button_xpath))
             )[0]
-
             if show_all_element.is_displayed():
                 show_all_element.click()
         except Exception as e:
-            print(f"Error loading makers page or clicking 'show all': {e}")
-            return None
+            print(f"Error  clicking 'show all': {e}")
+            return self.driver.page_source
 
         return self.driver.page_source
 

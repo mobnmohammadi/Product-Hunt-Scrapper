@@ -67,3 +67,19 @@ class Extractor():
         except Exception as e:
             print(f"Error checking hunter badge: {e}")
             self.result['hunter_badge'] = False
+
+    def get_team_member_count(self):
+        try:
+            element = self.extractor.find_all('path', attrs={'d': 'M4.055 10h1.05V6.164h.079L6.629 10h.738l1.446-3.836h.078V10h1.05V4.363H8.59L7.035 8.488h-.07L5.406 4.363H4.055z'})
+            self.result['team_member_count'] = len(element)
+        except Exception as e:
+            print(f"Error checking team_member_count badge: {e}")
+            self.result['team_member_count'] = None
+
+    def get_product_title(self):
+        try:
+            element = self.extractor.find('h1', attrs={'class': 'text-24 font-bold text-dark-gray styles_title__x5KUY'})
+            self.result['product_title'] = len(element)
+        except Exception as e:
+            print(f"Error checking product_title badge: {e}")
+            self.result['product_title'] = None

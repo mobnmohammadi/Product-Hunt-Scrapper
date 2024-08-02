@@ -22,6 +22,11 @@ def main():
                 extraction_object.perform_product_post()
                 for key, value in extraction_object.result.items():
                     result[key] = value
+            if 'product_name'  not in result.keys() or result['product_name'] == None:
+                result['product_name'] = extraction_object.get_product_title()
+            if 'team_member_count'  not in result.keys() or result['team_member_count'] == None:
+                result['team_member_count'] = extraction_object.get_team_member_count()
+
             output(result)
 
 if __name__ == '__main__':
