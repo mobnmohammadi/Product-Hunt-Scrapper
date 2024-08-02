@@ -1,8 +1,13 @@
 import pandas as pd
 
-df_output = pd.DataFrame(columns=['product_title', 'team_member_count', 'categories', 'comments_count', 'up_votes', 'day_rank', 'hunter_badge'])
+columns = ['product_title', 'team_member_count', 'categories', 'comments_count', 'up_votes', 'day_rank', 'hunter_badge']
+
 def output(result: dict):
-    global df_output
-    df_output = df_output._append({'product_title': result['product_title'], 'team_member_count': result['team_member_count'], 'categories': result['categories'], \
-                                'comments_count': result['comments_count'], 'up_votes': result['up_votes'], 'day_rank': result['day_rank'], 'hunter_badge': result['hunter_badge']}, ignore_index=True)
+    df_output = pd.DataFrame(columns= columns)
+    row_data = {key: None for key in columns}
+    for key in columns:
+        if key in result:
+            row_data[key] = result[key]
+
+    df_output = pd.DataFrame([row_data])
     df_output.to_csv('output.csv', index=False, mode = 'a', header = False)
