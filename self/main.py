@@ -23,7 +23,7 @@ def main():
                 for key, value in extraction_object.result.items():
                     result[key] = value
             if 'product_title'  not in result.keys() or result['product_title'] == None:
-                result['product_name'] = extraction_object.get_product_title()
+                result['product_title'] = extraction_object.get_product_title()
             if 'team_member_count'  not in result.keys() or result['team_member_count'] == None:
                 result['team_member_count'] = extraction_object.get_team_member_count()
 
