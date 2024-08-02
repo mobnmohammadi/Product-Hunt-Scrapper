@@ -52,7 +52,3 @@ class Crawling():
                 'post': f"https://www.producthunt.com/posts/{self.product_id}/"
             }
         return self._urls
-    
-# obj = Crawling(product_id='clarity-8',driver_manager=ChromeDriverManager(user_agent=get_random_user_agent()))
-# print(obj.get_post_page())
-      
