@@ -13,9 +13,6 @@ class Extractor():
         self.extract_team_member_count()
     
     def perform_product_post(self):
-        with open('mobin.html', 'w') as mobinfile:
-            mobinfile.writelines(self.content)
-
         self.extract_product_categories()
         self.extract_status()
     
